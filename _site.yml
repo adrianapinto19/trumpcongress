@@ -1,0 +1,6 @@
+name: "trumpcongress"
+navbar:
+  title: "Trump scores in Congress"
+  left:
+    - text: "Home"
+      href: index.html
