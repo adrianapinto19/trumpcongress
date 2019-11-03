@@ -8,13 +8,26 @@ output: html_document
 ## IMPORT 
 
 ```{r}
-
 data <- readr::read_csv(file = "averages.csv")
+```
+
+```{r}
+library(dplyr)
+data <- filter(.data = data, congress != 0)
+```
+
+```{r}
 library(ggplot2)
 g <- ggplot(
   data = data,
-  mapping = aes(x = state, y = net_trump_vote)
+  mapping = aes(x = net_trump_vote, fill = party)
 )
-g <- g + geom_col()
+g <- g + geom_histogram()
+g <- g + scale_fill_manual(
+  values = c("R" = "red", "D" = "blue", "I" = "darkgreen")
+)
 g 
 ```
+
+
+
